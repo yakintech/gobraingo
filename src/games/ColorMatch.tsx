@@ -7,24 +7,23 @@ const ColorMatch = () => {
     const [random1, setrandom1] = useState("")
     const [random2, setrandom2] = useState("")
     const [random3, setrandom3] = useState("black")
-    
+
+
 
     let colors = ["red", "blue", "orange", "black"]
 
     const trueButton = () => {
-        if(random3 === random1){
-            setpoints(points+1)
-        }
+        if (random3 === random1)
+            setpoints(points + 1)
+
 
         randomGenerator()
     }
 
 
     const falseButton = () => {
-        if(random3 !== random1){
-            setpoints(points+1)
-        }
-
+        if (random3 !== random1)
+            setpoints(points + 1)
         randomGenerator()
     }
 
@@ -32,13 +31,7 @@ const ColorMatch = () => {
 
     useEffect(() => {
         randomGenerator()
-
-        setInterval(() => {
-          
-        }, 1000)
-     
-
-    }, [random1])
+    }, [])
 
     const randomGenerator = () => {
         let r1 = Math.floor(Math.random() * colors.length)
@@ -51,7 +44,7 @@ const ColorMatch = () => {
 
 
     return (<>
-        <Text style={{fontSize:55, textAlign:'center'}}>{points}</Text>
+        <Text style={{ fontSize: 55, textAlign: 'center' }}>{points}</Text>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 20, alignItems: 'center' }}>
             <View style={{ borderStyle: 'solid', borderWidth: 2, width: '40%', height: 100, justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={{ fontSize: 35, fontWeight: '600' }}>{random1}</Text>
@@ -62,12 +55,13 @@ const ColorMatch = () => {
         </View>
 
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-            <Button onPress={falseButton}  title='YANLIŞ'></Button>
+            <Button onPress={falseButton} title='YANLIŞ'></Button>
             <Button onPress={trueButton} title='DOĞRU'></Button>
         </View>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-            <Text style={{fontSize:20}}>Süre: 00:45</Text>
+            <Text style={{ fontSize: 20 }}>Süre: 00:45</Text>
         </View>
+
     </>
     )
 }
