@@ -1,7 +1,12 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, Button } from 'react-native'
 import React from 'react'
 
 const HomeScreen = ({ navigation }: any) => {
+
+    const signout = () => {
+        // navigation.navigate('AuthHome')
+    }
+
     return (<>
         <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap' }}>
 
@@ -23,6 +28,8 @@ const HomeScreen = ({ navigation }: any) => {
             </Pressable>
 
         </View>
+
+        <Button title="Signout" onPress={signout} ></Button>
     </>
     )
 }

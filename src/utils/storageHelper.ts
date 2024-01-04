@@ -19,6 +19,13 @@ export const authStorageHelper = {
         } catch (e) {
             // error reading value
         }
+    },
+    removeLoginStorage: async () => {
+        try {
+            await AsyncStorage.removeItem('@login')
+        } catch (e) {
+            // remove error
+        }
     }
 }
 
