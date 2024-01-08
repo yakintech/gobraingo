@@ -7,6 +7,7 @@ const ColorMatch = () => {
     const [random1, setrandom1] = useState("")
     const [random2, setrandom2] = useState("")
     const [random3, setrandom3] = useState("black")
+    const [counter, setcounter] = useState(0)
 
 
 
@@ -18,6 +19,10 @@ const ColorMatch = () => {
 
 
         randomGenerator()
+        setcounter(counter + 1)
+        if (counter === 10) {
+            setpoints(0)
+        }
     }
 
 
@@ -25,6 +30,10 @@ const ColorMatch = () => {
         if (random3 !== random1)
             setpoints(points + 1)
         randomGenerator()
+        setcounter(counter + 1)
+        if (counter === 10) {
+            setpoints(0)
+        }
     }
 
 
@@ -54,10 +63,16 @@ const ColorMatch = () => {
             </View>
         </View>
 
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-            <Button onPress={falseButton} title='YANLIŞ'></Button>
-            <Button onPress={trueButton} title='DOĞRU'></Button>
-        </View>
+        {
+            counter <= 10 ? <><View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+                <Button onPress={falseButton} title='YANLIŞ'></Button>
+                <Button onPress={trueButton} title='DOĞRU'></Button>
+            </View></>
+                : <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
+                    <Text style={{ fontSize: 20 }}>Oyun Bitti</Text>
+                </View>
+        }
+        <Button title='Yenile' onPress={() => setcounter(0)}></Button>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
             <Text style={{ fontSize: 20 }}>Süre: 00:45</Text>
         </View>

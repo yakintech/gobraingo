@@ -1,21 +1,24 @@
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { authStorageHelper } from '../../utils/storageHelper'
+import { AuthContext, AuthContextType } from '../../context/AuthContext'
 
 const LoginScreen = ({navigation} : any) => {
 
   const [email, setemail] = useState("")
   const [password, setpassword] = useState("")
 
+  const { login:contextLogin } = useContext(AuthContext) as AuthContextType
+
 
   const login = () => {
-    //email cagatay@mail.com password 123
+    
 
-    if (email == "cagatay@mail.com" && password == "123") {
+    if (email.toLowerCase() == "cagatay@mail.com" && password == "123") {
 
       authStorageHelper.setLoginStorage(true)
         .then(() => {
-          navigation.navigate("Home")
+          contextLogin()
         })
     }
     else {

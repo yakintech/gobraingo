@@ -1,10 +1,19 @@
 import { View, Text, Pressable, Button } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext, AuthContextType } from '../context/AuthContext'
+import { authStorageHelper } from '../utils/storageHelper'
 
 const HomeScreen = ({ navigation }: any) => {
 
+    const { logout } = useContext(AuthContext) as AuthContextType
+
     const signout = () => {
-        // navigation.navigate('AuthHome')
+
+        authStorageHelper.removeLoginStorage()
+            .then((res) => {  
+                navigation.navigate('Auth')
+                logout()
+            })
     }
 
     return (<>
