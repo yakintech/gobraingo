@@ -1,5 +1,6 @@
 import { View, Text, Button } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { UserContext, UserContextType } from '../context/UserContext'
 
 const ColorMatch = () => {
 
@@ -8,6 +9,8 @@ const ColorMatch = () => {
     const [random2, setrandom2] = useState("")
     const [random3, setrandom3] = useState("black")
     const [counter, setcounter] = useState(0)
+
+    const { totalPoints, setTotalPoints } = useContext(UserContext) as UserContextType
 
 
 
@@ -21,6 +24,7 @@ const ColorMatch = () => {
         randomGenerator()
         setcounter(counter + 1)
         if (counter === 10) {
+            setTotalPoints(totalPoints + points)
             setpoints(0)
         }
     }
@@ -32,6 +36,7 @@ const ColorMatch = () => {
         randomGenerator()
         setcounter(counter + 1)
         if (counter === 10) {
+            setTotalPoints(totalPoints + points)
             setpoints(0)
         }
     }
@@ -53,7 +58,8 @@ const ColorMatch = () => {
 
 
     return (<>
-        <Text style={{ fontSize: 55, textAlign: 'center' }}>{points}</Text>
+        <Text style={{ fontSize: 55, textAlign: 'center' }}>Oyun: {points}</Text>
+        <Text style={{ fontSize: 55, textAlign: 'center' }}>Toplam: {totalPoints}</Text>
         <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', padding: 20, alignItems: 'center' }}>
             <View style={{ borderStyle: 'solid', borderWidth: 2, width: '40%', height: 100, justifyContent: 'center', alignItems: 'center' }}>
                 <Text style={{ fontSize: 35, fontWeight: '600' }}>{random1}</Text>
