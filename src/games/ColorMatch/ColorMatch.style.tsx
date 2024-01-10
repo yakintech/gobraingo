@@ -1,0 +1,95 @@
+import {StyleSheet} from 'react-native';
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 20,
+  },
+  points: {
+    fontSize: 32,
+    fontWeight: '500',
+    textAlign: 'center',
+    marginTop: 20,
+  },
+  boxContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  box: {
+    width: '45%',
+    height: 100,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: 'gray',
+    shadowColor: 'black',
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  boxMeaning: {
+    width: '60%',
+    height: 28,
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 8,
+    position: 'absolute',
+    bottom: -20,
+  },
+  boxMeaningText: {
+    fontSize: 12,
+    fontWeight: '400',
+  },
+  colorText: {
+    fontSize: 24,
+    fontWeight: '600',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 40,
+  },
+  button: {
+    width: '45%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: 'gray',
+  },
+  buttonText: {
+    fontSize: 30,
+    fontWeight: '600',
+  },
+  timerContainer: {
+    justifyContent: 'center',
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
+  timerText: {
+    fontSize: 30,
+    fontWeight: '400',
+  },
+  finishContainer: {
+    flex: 1,
+    backgroundColor: '#fff',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  finishText: {
+    fontSize: 30,
+    fontWeight: '400',
+    marginBottom: 12,
+  },
+});
